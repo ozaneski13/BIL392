@@ -10,7 +10,7 @@ public class MouseLook : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;//Oyun baslayinca farenin gorunup gorunmeyecegini bu satir ile ayarliyorsunuz.
+        //Cursor.lockState = CursorLockMode.Locked;//Oyun baslayinca farenin gorunup gorunmeyecegini bu satir ile ayarliyorsunuz.
     }
 
     private void Update()
