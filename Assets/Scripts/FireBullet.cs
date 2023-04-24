@@ -25,8 +25,15 @@ public class FireBullet : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))//Sag click yapildiginda ates ediyoruz.
-            Fire();
+        //if (Input.GetMouseButtonDown(1))//Sag click yapildiginda ates ediyoruz.
+        //    Fire();
+
+        if(Input.touchCount > 0)
+        {
+            for (int i = 0; i < Input.touchCount; i++)
+                if(Input.GetTouch(i).phase == TouchPhase.Ended)
+                    Fire();
+        }
     }
 
     private void FillPool()

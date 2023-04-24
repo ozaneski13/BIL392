@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private LayerMask _layer;//Yer tespiti yapilirken kontrol edilecek Ground GameObject'in layer degiskeni
 
+    [SerializeField] private Joystick _joystick = null;
+
     private Vector3 _velocity = Vector3.zero;//Ziplama ve dusus sirasinda elde edilen hiz
 
     private bool _isGrounded = true;//Yere degip degmedigimizi tutan bool degeri
@@ -24,8 +26,11 @@ public class PlayerMovement : MonoBehaviour
         if (_isGrounded && _velocity.y < 0)
             _velocity.y = -2f;
 
-        float x = Input.GetAxis("Horizontal");//Ileri-geri ve sag-sol hareketleri yapabilmek icin Inputlari aliyoruz.
-        float z = Input.GetAxis("Vertical");
+        //float x = Input.GetAxis("Horizontal");//Ileri-geri ve sag-sol hareketleri yapabilmek icin Inputlari aliyoruz.
+        //float z = Input.GetAxis("Vertical");
+
+        float x = _joystick.Horizontal;
+        float z = _joystick.Vertical;
 
         Vector3 move = transform.right * x + transform.forward * z;//transform.right bize GameObject'in sag yonunu verdigi icin float x'ten gelecek pozitif ya da negatif deger karakterin saga ya da sola gitmesini belirleyecek (-sag = sol). Ayni durum float z'de ileri geri gitme icinde gecerli.
 
